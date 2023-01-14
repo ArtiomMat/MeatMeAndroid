@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="male">#507ED8</color>
+    <color name="male2">#494FCE</color>
+
+    <color name="femboy">#DD3F77</color>
+    <color name="femboy2">#BD2F3C</color>
+
+    <color name="alien">#23C07F</color>
+    <color name="alien2">#339866</color>
+
+    <color name="dark">#131013</color>
+    <color name="dark2">#070606</color>
+    <color name="dark3">#898282</color>
+
+    <color name="light">#FEFCFF</color>
+    <color name="light2">#E9DEF0</color>
+    <color name="light3">#A19EA2</color>
+</resources>

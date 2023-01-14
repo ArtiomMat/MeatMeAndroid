@@ -1,0 +1,29 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.MeatMe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/male</item>
+        <item name="colorPrimaryVariant">@color/male2</item>
+        <item name="colorOnPrimary">@color/light</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/femboy</item>
+        <item name="colorSecondaryVariant">@color/femboy2</item>
+        <item name="colorOnSecondary">@color/light</item>
+
+        <item name="colorTertiary">@color/alien</item>
+        <item name="colorOnTertiary">@color/light</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/light2</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:windowBackground">@color/light</item>
+
+        <item name="android:fontFamily">@font/noto_sans_h_medium</item>
+        <item name="android:textAllCaps">false</item>
+
+        <item name="weakTextColor">@color/light3</item>
+    </style>
+</resources>

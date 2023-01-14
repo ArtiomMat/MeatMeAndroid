@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TitleActivity">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="146sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/logo_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_bold_x"
+            android:text="Meat"
+            android:textColor="@color/femboy"
+            android:textSize="80sp" />
+
+        <TextView
+            android:id="@+id/title_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_bold_x"
+            android:text="Me"
+            android:textColor="@color/male"
+            android:textSize="80sp" />
+
+    </TableRow>
+
+    <TextView
+        android:id="@+id/cr_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/copyright"
+        android:textColor="?weakTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="240dp"
+        android:layout_height="235dp"
+        android:bottomLeftRadius="20dp"
+
+        android:bottomRightRadius="20dp"
+        android:contentDescription="@string/logo_description"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.389"
+        app:srcCompat="@drawable/meatme_bg" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="264dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/sexy_button"
+        android:backgroundTint="@color/alien"
+        android:backgroundTintMode="add"
+        android:text="@string/title_button_text"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_image"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

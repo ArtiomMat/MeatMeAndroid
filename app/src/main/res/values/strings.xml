@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MeatMe</string>
+    <string name="copyright">© 2006-2023 Artiom Matevosyan בע"\מ. All rights reserved. </string>
+    <string name="logo_description">Logo of the app</string>
+
+	<string name="face_text_detection">Detecting face...</string>
+    <string name="title_button_text">MEAT\nSomeone</string>
+</resources>
