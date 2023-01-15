@@ -26,18 +26,26 @@ import java.util.concurrent.atomic.AtomicReference;
 public class FaceActivty extends AppCompatActivity {
 
 	private PreviewView previewView;
+	// This is an EXTREMELY dirty method, by making it static we can just access the camera
+	// from the startPreview cameraProviderFuture.addListener. Until I figure out an efficient
+	// method to retreive the camera this is how it will be.
 	private Camera camera = null;
 
 	private static final int MY_CAMERA_REQUEST_CODE = 100;
 
+	private void setCamera(Camera camera) {
+		this.camera = camera;
+	}
+
 	private void setupCameraSettings() {
-		// camera.getCameraControl().setLinearZoom(0.5f);
+		if (camera == null)
+			return;
+		camera.getCameraControl().setLinearZoom(0.5f);
 	}
 
 	// Called by onRequestPermissionsResult() and onCreate() when we get premissions for camera.
 	// It mainly binds the peview view to the camera for displaying information to the user.
 	private void startPreview() {
-		AtomicReference<Camera> cameraAtomicReference = new AtomicReference<>(null);
 
 		previewView = findViewById(R.id.preview_view);
 
@@ -59,9 +67,10 @@ public class FaceActivty extends AppCompatActivity {
 							CameraSelector.DEFAULT_FRONT_CAMERA,
 							preview);
 
-					camera.getCameraControl().setLinearZoom(0.5f);
+					//camera.getCameraControl().setLinearZoom(0.5f);
 
-					cameraAtomicReference.set(camera);
+					setCamera(camera);
+					setupCameraSettings();
 				}
 				else {
 					Toast.makeText(this, "No front camera lol", Toast.LENGTH_SHORT).show();
@@ -72,9 +81,6 @@ public class FaceActivty extends AppCompatActivity {
 				Toast.makeText(this, "Failed to fetch information!", Toast.LENGTH_SHORT).show();
 			}
 		}, ContextCompat.getMainExecutor(this));
-
-		this.camera = cameraAtomicReference.get();
-		setupCameraSettings();
 	}
 
 	// Called by the super class I think, when the application is reopened, after running in
