@@ -14,11 +14,15 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.google.common.util.concurrent.ListenableFuture;
+
+import org.artiom.net.Map;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicReference;
@@ -32,10 +36,6 @@ public class FaceActivty extends AppCompatActivity {
 	private Camera camera = null;
 
 	private static final int MY_CAMERA_REQUEST_CODE = 100;
-
-	private void setCamera(Camera camera) {
-		this.camera = camera;
-	}
 
 	private void setupCameraSettings() {
 		if (camera == null)
@@ -67,10 +67,10 @@ public class FaceActivty extends AppCompatActivity {
 							CameraSelector.DEFAULT_FRONT_CAMERA,
 							preview);
 
-					//camera.getCameraControl().setLinearZoom(0.5f);
-
-					setCamera(camera);
+					this.camera = camera;
 					setupCameraSettings();
+
+					System.out.println(previewView.getBitmap());
 				}
 				else {
 					Toast.makeText(this, "No front camera lol", Toast.LENGTH_SHORT).show();
@@ -113,5 +113,22 @@ public class FaceActivty extends AppCompatActivity {
 		else
 			startPreview();
 
+		findViewById(R.id.imageButton).setOnClickListener(v -> {
+			Bitmap bitmap = previewView.getBitmap();
+			System.out.println("BITMAP: "+bitmap);
+			if (bitmap != null) {
+				System.out.println("COLOR BLUE:");
+				Map m = new Map(bitmap.getWidth(), bitmap.getHeight(), Map.FORMAT_RGB);
+				for (int x = 0; x < bitmap.getWidth(); x++) {
+					for (int y = 0; y < bitmap.getWidth(); y++) {
+						if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+							Color c = bitmap.getColor(x, y);
+							// FIXME: Do getPixel instead for early versions
+							System.out.println("COLOR BLUE:"+c.blue());
+						}
+					}
+				}
+			}
+		});
 	}
 }
